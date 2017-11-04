@@ -13,18 +13,18 @@ public class FrequentWords {
         return count; // die Anzahl des Vorkommens des Patterns im Text
     }
     public static Set <String> frequentWords(String text, int k){
-        Set <String> frequentPatterns = new HashSet<String>();
-        int[] count = new int[text.length() - k];
-        int maxCount = 0;
-        for(int i=0; i < (text.length() - k); i++){
-            String pattern = text.substring(i, i + k);
-            count[i] = patternCount(text, pattern);
-            if(count[i] > maxCount){
-                maxCount = count[i];
+        Set <String> frequentPatterns = new HashSet<String>(); //um Duplikaten zu vermeiden, benutzen wir einen Set
+        int[] count = new int[text.length() - k];              //Länge des Arrays count festlegen
+        int maxCount = 0;                                      //maxCount initialisieren
+        for(int i=0; i < (text.length() - k); i++){            //geht alle nötigen Positionen im Text durch
+            String pattern = text.substring(i, i + k);         //bestimmt k-mere
+            count[i] = patternCount(text, pattern);            //speichert Anzahl der Vorkommen im array count
+            if(count[i] > maxCount){                           //findet die maximale Anzahl der Vorkommen für
+                maxCount = count[i];                           //die häufigsten k-mere
             }
         }
-        for(int i=0; i < (text.length() - k); i++){
-            if(count[i] == maxCount){
+        for(int i=0; i < (text.length() - k); i++){            //die häufigsten k-mere im Set frequentPatterns
+            if(count[i] == maxCount){                          //speichern
                 frequentPatterns.add(text.substring(i, i + k));
             }
         }
