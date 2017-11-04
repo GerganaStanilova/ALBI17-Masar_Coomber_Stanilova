@@ -23,4 +23,28 @@ public class FastFrequentWords {
             return 4*patternToNumber(pattern.substring(0, pattern.length() - 1)) + symbolToNumber(pattern.substring(pattern.length() - 1));
         }
     }
+    public static String numberToSymbol(int number){
+        switch (number){
+            case 0:
+                return "A";
+            case 1:
+                return "C";
+            case 2:
+                return "G";
+            case 3:
+                return "T";
+            default: System.err.println("Falsche Eingabe!!!");
+                return "";
+        }
+    }
+    public static String numberToPattern(int index, int k){
+        if(k == 1){
+            return numberToSymbol(index);
+        }
+        int prefIndex = index/4;
+        int r = index%4;
+        String symbol = numberToSymbol(r);
+        String prefixPattern = numberToPattern(prefIndex, k - 1);
+        return prefixPattern + symbol;
+    }
 }
