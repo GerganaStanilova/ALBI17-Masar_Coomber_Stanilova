@@ -10,5 +10,6 @@ public class Main {
         }
         String pattern = "AGT";
         System.out.println(FastFrequentWords.patternToNumber(pattern));
+        System.out.println(FastFrequentWords.numberToPattern(11,3));
     }
 }
