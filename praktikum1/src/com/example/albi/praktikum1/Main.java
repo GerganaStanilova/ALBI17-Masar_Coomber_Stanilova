@@ -8,5 +8,7 @@ public class Main {
         for (String item : FrequentWords.frequentWords(text,k)) { //jedes Element im Set frequentPatterns ausgeben
             System.out.println(item);
         }
+        String pattern = "AGT";
+        System.out.println(FastFrequentWords.patternToNumber(pattern));
     }
 }
