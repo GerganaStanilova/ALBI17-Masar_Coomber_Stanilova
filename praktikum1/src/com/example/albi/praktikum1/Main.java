@@ -3,11 +3,9 @@ package com.example.albi.praktikum1;
 public class Main {
 
     public static void main(String[] args) {
-	// write your code here
-        //Hallo Welt
         String text = "ACGTTGCATGTCGCATGATGCATGAGAGCT";
         int k = 4;
-        for (String item : FrequentWords.frequentWords(text,k)) {
+        for (String item : FrequentWords.frequentWords(text,k)) { //jedes Element im Set frequentPatterns ausgeben
             System.out.println(item);
         }
     }
