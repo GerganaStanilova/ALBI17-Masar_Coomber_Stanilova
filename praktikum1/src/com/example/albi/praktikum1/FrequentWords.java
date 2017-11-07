@@ -1,4 +1,5 @@
 package com.example.albi.praktikum1;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 public class FrequentWords {
@@ -12,8 +13,8 @@ public class FrequentWords {
         }
         return count; // die Anzahl des Vorkommens des Patterns im Text
     }
-    public static Set <String> frequentWords(String text, int k){
-        Set <String> frequentPatterns = new HashSet<String>(); //um Duplikaten zu vermeiden, benutzen wir einen Set
+    public static ArrayList <String> frequentWords(String text, int k){
+        ArrayList <String> frequentPatterns = new ArrayList<>(); //
         int[] count = new int[text.length() - k];              //Länge des Arrays count festlegen
         int maxCount = 0;                                      //maxCount initialisieren
         for(int i=0; i < (text.length() - k); i++){            //geht alle nötigen Positionen im Text durch
@@ -28,7 +29,22 @@ public class FrequentWords {
                 frequentPatterns.add(text.substring(i, i + k));
             }
         }
+        for(int i=0; i < frequentPatterns.size(); i++){
+            for(int j=i+1; j < frequentPatterns.size(); j++){
+                if(frequentPatterns.get(i).equals(frequentPatterns.get(j))){
+                    frequentPatterns.remove(j);
+                }
+            }
+        }
         return frequentPatterns;
+
+    }
+    public static void main(String[] args) {
+        String text = "ACGTTGCATGTCGCATGATGCATGAGAGCT";
+        int k = 4;
+        for (String item : FrequentWords.frequentWords(text,k)) { //jedes Element im Set frequentPatterns ausgeben
+            System.out.println(item);
+        }
 
     }
 }
