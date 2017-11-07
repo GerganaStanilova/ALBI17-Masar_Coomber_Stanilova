@@ -80,4 +80,11 @@ public class FastFrequentWords {
         }
         return frequentPatterns;
     }
+    public static void main(String[] args) {
+        String text = "ACGTTGCATGTCGCATGATGCATGAGAGCT";
+        int k = 4;
+        for (String item : FastFrequentWords.fasterFrequentwords(text,k)) { //jedes Element im Set frequentPatterns ausgeben
+            System.out.println(item);
+        }
+    }
 }
