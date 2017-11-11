@@ -29,13 +29,16 @@ public class FrequentWords {
                 frequentPatterns.add(text.substring(i, i + k));
             }
         }
+
         for(int i=0; i < frequentPatterns.size(); i++){
-            for(int j=i+1; j < frequentPatterns.size(); j++){
+            for(int j=0; j < frequentPatterns.size(); j++){
+                if(i==j) continue; // mit dem nächsten Schleifenzustand fortfahren, wenn Bedingung erfüllt
                 if(frequentPatterns.get(i).equals(frequentPatterns.get(j))){
                     frequentPatterns.remove(j);
                 }
             }
         }
+
         return frequentPatterns;
 
     }
